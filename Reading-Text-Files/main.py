@@ -20,8 +20,16 @@ def count_words():
     word_arr = re.split("[\\s+.?\n,]", text)
     word_dict = {}
     for word in word_arr:
-        word_dict[word] = len(word)
+        word_dict[word] = count_occurence(word, text)
     return word_dict
+
+
+def count_occurence(word, text):
+    n = 0
+    for a in re.split("[\\s+.?\n,]", text):
+        if a == word:
+            n += 1
+    return n
 
 
 print(count_words())
